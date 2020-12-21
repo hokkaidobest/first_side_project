@@ -18,9 +18,9 @@ class CreateMemberTable extends Migration
             $table->string('account', 255)->comment('帳號:email');
             $table->string('password', 60)->comment('密碼');
             $table->string('login_token', 500);
-            $table->string('name', 60)->comment('會員姓名');
-            $table->string('birthday', 10)->comment('生日:2000-01-01');
-            $table->tinyInteger('gender')->comment('1:男性 2:女性 3三性');
+            $table->string('name', 60)->comment('會員姓名')->nullable();
+            $table->string('birthday', 10)->comment('生日:2000-01-01')->nullable();
+            $table->enum('gender', ['MALE', 'FEMALE', 'THIRD'])->comment('MALE:男性 FEMALE:女性 THIRD:三性')->nullable();
             $table->timestamp('created_at')->useCurrent()->comment('建立時間');
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))->comment('更新時間');
             $table->softDeletes();

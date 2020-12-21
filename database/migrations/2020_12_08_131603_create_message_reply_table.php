@@ -31,6 +31,6 @@ class CreateMessageReplyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('message');
+        Schema::dropIfExists('message_reply');
     }
 }
